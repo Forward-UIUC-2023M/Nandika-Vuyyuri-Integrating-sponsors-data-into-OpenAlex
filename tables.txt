@@ -1,0 +1,65 @@
+
+//reference table for sponsor type
+
+CREATE TABLE SPONSOR_TYPE (
+   ID INT PRIMARY KEY NOT NULL,
+   NAME           VARCHAR(255) NOT NULL
+);
+
+
+insert into SPONSOR_TYPE(ID, NAME) values (1, 'Corporation');
+insert into SPONSOR_TYPE(ID, NAME) values (2, 'Foundation');
+
+
+Sponsor table.
+
+
+CREATE TABLE SPONSOR (
+   ID INT PRIMARY KEY NOT NULL,
+   NAME           VARCHAR(500) NOT NULL,
+   ADDRESS             VARCHAR(500) NOT NULL,
+   COUNTRY   VARCHAR(200),
+   EMAIL           VARCHAR(500),
+   URL           VARCHAR(1000),
+   PARENT_ID INT,
+   TYPE_ID INT,
+   CREATED DATE,
+   LAST_UPDATED DATE
+);lo
+
+
+
+// reference tables for grant 
+
+
+
+//child tables for grants
+CREATE TABLE GRANTS_DEADLINES (
+    GRANT_ID INT NOT NULL,
+    TYPE VARCHAR(25) NOT NULL,
+    DEADLINE DATE NOT NULL
+);
+
+CREATE TABLE GRANTS_AMOUNTS (
+    GRANT_ID INT NOT NULL,
+    CONFIRMED INT NOT NULL,
+    CURRENCY VARCHAR(5) NOT NULL,
+    TYPE VARCHAR(25) NOT NULL,
+    AMOUNT DECIMAL NOT NULL
+);
+       
+
+CREATE TABLE GRANTS_SPONSORS (
+    GRANT_ID INT NOT NULL,
+    SPONSOR_ID INT NOT NULL
+);
+
+
+// grant table
+CREATE TABLE GRANTS (
+   ID INT PRIMARY KEY NOT NULL,
+   TITLE           VARCHAR(500),
+   URL             VARCHAR(500) NOT NULL,
+   STATUS_TYPE      VARCHAR(25),
+   
+);
